@@ -1,0 +1,24 @@
+import { Button, Grid, Paper } from '@material-ui/core';
+import React, { useState } from 'react';
+import LoginForm from '../components/LoginForm';
+import RegisterDialog from '../components/RegisterDialog';
+import Page from './Page';
+
+const LoginPage: React.FC = () => {
+  const [open, setOpen] = useState(false);
+  return (
+    <Page title="Login">
+      <Grid container justify="center" direction="column" alignItems="center">
+        <Paper>
+          <Grid item container direction="column" alignItems="center">
+            <LoginForm />
+            <Button onClick={() => setOpen(true)}>Register</Button>
+            <RegisterDialog open={open} setOpen={setOpen} />
+          </Grid>
+        </Paper>
+      </Grid>
+    </Page>
+  );
+};
+
+export default LoginPage;
